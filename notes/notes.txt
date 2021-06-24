@@ -67,4 +67,9 @@ python manage.py makemigrations cheeses - once all conflicts were resolved and w
 python manage.py migrate cheeses
 
 python manage.py shell_plus - loads all Django settings from manage.py and also auto-loads all models
- cheese = Cheese.objects.create(name='Colby', description='Similar to Cheddar but without undergoing the same process', firmness=Cheese.Firmness.SEMI_HARD) - instantiate & create new record in the database
+ cheese = Cheese.objects.create(name='Colby', description='Similar to Cheddar but without undergoing the same process', firmness=Cheese.Firmness.SEMI_HARD) - instantiate & create new record in the DATABASES
+
+Once commited changes to the repo, run test coverage. New functionality is not fully covered. Thus, we have to create tests infrastructure inside cheeses app.
+
+
+python manage.py createsuperuser - Admin access again!
