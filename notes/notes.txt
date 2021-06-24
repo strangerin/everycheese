@@ -46,3 +46,5 @@ git log
 
 DJANGO_EMAIL_BACKEND - for local development
 "django.core.mail.backends.console.EmailBackend" - so all emails will be visible in the local console
+
+python manage.py makemigrations users - after we added additional field to the user model

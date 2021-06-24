@@ -1,10 +1,6 @@
-# <<<<<<< HEAD
-
 # everycheese
 
 Various experiments with Django 3.x and Python 3.8
-
-> > > > > > > b80d60a84108532e62bfa8567486baa519f2ddf8
 
 # EveryCheese
 
