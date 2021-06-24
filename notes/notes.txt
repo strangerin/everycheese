@@ -48,3 +48,23 @@ DJANGO_EMAIL_BACKEND - for local development
 "django.core.mail.backends.console.EmailBackend" - so all emails will be visible in the local console
 
 python manage.py makemigrations users - after we added additional field to the user model
+python manage.py migrate users
+
+git status -  to track changes we made
+git add -A - add all changed files
+coverage run -m pytest - run pre-configured test suite
+
+coverage report - coverage is a library that scans the project and ensures we have everything configured properly
+coverage html - same coverage report, but in HTML format
+
+
+python manage.py startapp cheeses - created new Django appllication
+move cheeses everycheese/ - moved it inside the internal everycheese folder, in case of non-Win platforms, use mv
+conda install -c conda-forge django-autoslug - autoslug is needed for the new model, in order for it to properly migrate
+
+conda env remove --name everycheese - removed broken env due to various heck-ups during development
+python manage.py makemigrations cheeses - once all conflicts were resolved and we re-made the env
+python manage.py migrate cheeses
+
+python manage.py shell_plus - loads all Django settings from manage.py and also auto-loads all models
+ cheese = Cheese.objects.create(name='Colby', description='Similar to Cheddar but without undergoing the same process', firmness=Cheese.Firmness.SEMI_HARD) - instantiate & create new record in the database
