@@ -1,0 +1,48 @@
+conda --version - to make sure conda was installed properly
+conda update conda
+conda create -n hellodjango python=3.8
+conda activate hellodjango
+conda deactivate
+pip install django - pip is part of packages inside the conda env, and we install it from there
+django-admin startproject hellodjango - start new Django project
+cd to the hellodjango root folder
+python manage.py migrate - for initial DB creation (along with some basic structure)
+python manage.py runserver
+python manage.py createsuperuser - create Django superuser
+python manage.py startapp homepage - create first sample appllication
+mkdir templates - on the same level as manage.py
+
+conda create -n everycheese python=3.8 - new env for different project
+conda install -c conda-forge cookiecutter -first library for the new project
+https://github.com/feldroy/django-crash-starter - repo for cookiecutter library
+cookiecutter gh:roygreenfeld/django-crash-starter - corresponding command
+conda activate everycheese - just in case
+
+IMPORTANT
+MAKE SURE YOU HAVE POSTGRESQL INSTALLED AND RUNNING
+psql --version
+createdb
+
+If you are on Windows 10 - you are out of luck. Try installing the package and use the following instruction to add it to the sys PATH
+https://stackoverflow.com/questions/30401460/postgres-psql-not-recognized-as-an-internal-or-external-command
+
+When, inevitably, you will be kicked in the teeth by allmighty postgres, run following command:
+createdb -U postgres everycheese
+
+Instead of postgres use your superuser login, else you are out of luck.
+
+
+Use the following command to start and get requirements for local development, make sure you are in the project folder.
+pip install -r requirements/local.txt
+
+CHANGED DATABASES dict in Django settings of everycheese project to hard-coded stuff temporarily
+git init - in everycheese project folder
+git remote add origin git@github.com:USERNAME/everycheese.git
+git add .
+git commit -m "Boilerplate files generated from the django-crash-starter" - initial commit message
+git pull origin master --allow-unrelated-histories - I made an oopsie while creating project repo, this helps
+git push -f origin master - yeah, I re-wrote remote, cause I am not very good with GIT
+git log 
+
+DJANGO_EMAIL_BACKEND - for local development
+"django.core.mail.backends.console.EmailBackend" - so all emails will be visible in the local console
