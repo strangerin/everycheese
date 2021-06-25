@@ -73,3 +73,10 @@ Once commited changes to the repo, run test coverage. New functionality is not f
 
 
 python manage.py createsuperuser - Admin access again!
+In admin.py of our new app register the model!
+
+from .models import Cheese
+admin.site.register(Cheese)
+
+django-countries==7.2.1 - added it to the base requirements document
+pip install -r requirements/local.txt - and installed it from the base requirements document, lewl 

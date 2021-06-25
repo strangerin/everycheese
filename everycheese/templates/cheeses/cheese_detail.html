@@ -4,11 +4,19 @@
 {% block content %}
 
 <h2>{{cheese.name}}</h2>
+
 {% if cheese.firmness %}
 <p>Firmness: {{cheese.firmness.display}}</p>
 {% endif %} 
+
 {% if cheese.description %}
 <p>Cheese Description: {{cheese.description}}</p>
+{% endif %} 
+
+{% if cheese.country_of_origin %}
+<p>Country of Origin: {{cheese.country_of_origin.name}}
+<img src="{{cheese.country_of_origin.flag}}" alt="country flag">
+</p>
 {% endif %} 
 
 {% endblock content %}
