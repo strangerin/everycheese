@@ -84,3 +84,11 @@ pip install -r requirements/local.txt - and installed it from the base requireme
 
 Once we are done with Django user forms, it is time to somewhat properly style them.
 In order to do that, we should use Django Crispy forms {% load crispy_forms_tags %}
+
+When we added creator field to the DB, we need to populate DB with author data, like in the example below via shell_plus
+
+cheesehead = User.objects.get(username='cheesehead')
+
+In [2]: for cheese in Cheese.objects.all():
+   ...:     cheese.creator = cheesehead
+   ...:     cheese.save()
