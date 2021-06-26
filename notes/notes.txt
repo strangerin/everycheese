@@ -80,3 +80,7 @@ admin.site.register(Cheese)
 
 django-countries==7.2.1 - added it to the base requirements document
 pip install -r requirements/local.txt - and installed it from the base requirements document, lewl 
+
+
+Once we are done with Django user forms, it is time to somewhat properly style them.
+In order to do that, we should use Django Crispy forms {% load crispy_forms_tags %}
