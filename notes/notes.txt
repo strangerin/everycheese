@@ -92,3 +92,21 @@ cheesehead = User.objects.get(username='cheesehead')
 In [2]: for cheese in Cheese.objects.all():
    ...:     cheese.creator = cheesehead
    ...:     cheese.save()
+
+When we added creator field to the test factory, we should test it via shell_plus
+In [1]: from everycheese.cheeses.tests.factories import CheeseFactory
+
+In [2]: cheese = CheeseFactory()
+
+In [3]: cheese.creator
+Out[3]: <User: braywarren>
+
+In [4]: cheese.delete()
+Out[4]: (1, {'cheeses.Cheese': 1})
+
+In [5]: u = User.objects.last()
+
+In [6]: u
+Out[6]: <User: braywarren>
+
+Don`t forget to clean up your data once you`ve manually tested it!
