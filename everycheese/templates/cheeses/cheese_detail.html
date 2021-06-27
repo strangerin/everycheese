@@ -1,34 +1,31 @@
-{% extends "base.html" %}
-{% block title %} Cheese: {{cheese.name}} {% endblock %}
+{% extends "base.html" %} 
+{% block title %} Cheese: {{cheese.name}} {% endblock %} 
 
 {% block content %}
 
 <h2>{{cheese.name}}</h2>
 
 {% if cheese.firmness %}
-    <p>Firmness: {{ cheese.get_firmness_display }}</p>
+<p>Firmness: {{ cheese.get_firmness_display }}</p>
+{% endif %} {% if cheese.description %}
+<p>Cheese Description: {{cheese.description}}</p>
+{% endif %} {% if cheese.country_of_origin %}
+<p>
+  Country of Origin: {{cheese.country_of_origin.name}}
+  <img src="{{cheese.country_of_origin.flag}}" alt="country flag" />
+</p>
 {% endif %}
 
-{% if cheese.description %}
-    <p>Cheese Description: {{cheese.description}}</p>
-{% endif %} 
-
-{% if cheese.country_of_origin %}
-    <p>Country of Origin: {{cheese.country_of_origin.name}}
-        <img src="{{cheese.country_of_origin.flag}}" alt="country flag">
-    </p>
-{% endif %} 
-
-<hr/>
+<hr />
 <h3>
-    Submitted by
-    <a href="{% url 'users:detail' cheese.creator.username %}">
-        {{ cheese.creator.username }}
-    </a>
+  Submitted by
+  <a href="{% url 'users:detail' cheese.creator.username %}">
+    {{ cheese.creator.username }}
+  </a>
 </h3>
 
 {% if cheese.creator.name %}
-    <p>{{ cheese.creator.name }}</p>
-{% endif %}
+<p>{{ cheese.creator.name }}</p>
+{% endif %} 
 
 {% endblock content %}
