@@ -91,3 +91,21 @@ def test_good_cheese_create_view(rf, admin_user):
     response = CheeseCreateView.as_view()(request)
     # validate the response
     assert response.status_code == 200
+
+def test_cheese_create_form_valid(rf, admin_user):
+    # Submit the cheese add form
+    form_data = {
+        'name': "Paski Sir",
+        'description': 'A salty hard Cheese',
+        'firmness': Cheese.Firmness.HARD
+    }
+    request = rf.post(reverse('cheeses:add'), form_data)
+    request.user = admin_user
+    response = CheeseCreateView.as_view()(request)
+
+    # Get the cheese based on name
+    cheese = Cheese.objects.get(name='Paski Sir')
+    # Test that the cheese matches our form
+    assert cheese.description == 'A salty hard Cheese'
+    assert cheese.firmness ==  Cheese.Firmness.HARD
+    assert cheese.creator == admin_user
