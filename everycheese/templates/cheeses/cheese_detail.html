@@ -5,6 +5,12 @@
 
 <h2>{{cheese.name}}</h2>
 
+<p>
+  <a class="btn btn-primary" href="{% url 'cheeses:update' cheese.slug %}" role="button">
+    Update
+  </a>
+</p>
+
 {% if cheese.firmness %}
 <p>Firmness: {{ cheese.get_firmness_display }}</p>
 {% endif %} {% if cheese.description %}
