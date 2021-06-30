@@ -4,6 +4,12 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from ..models import Cheese
 from everycheese.users.tests.factories import UserFactory
+import pytest
+
+@pytest.fixture
+def cheese():
+    return CheeseFactory()
+
 
 class CheeseFactory(factory.django.DjangoModelFactory):
     name = factory.fuzzy.FuzzyText()
