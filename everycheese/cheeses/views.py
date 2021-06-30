@@ -27,7 +27,7 @@ class CheeseCreateView(LoginRequiredMixin, CreateView):
         form.instance.creator = self.request.user
         return super().form_valid(form)
 
-class CheeseUpdateView(UpdateView):
+class CheeseUpdateView(LoginRequiredMixin, UpdateView):
     model = Cheese
     fields = [
         'name', 
